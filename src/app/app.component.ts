@@ -6,5 +6,10 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
+  status: boolean = false;
   title = 'Travelling-Planning';
+
+  clickEvent(){
+    this.status = !this.status;
+  }
 }

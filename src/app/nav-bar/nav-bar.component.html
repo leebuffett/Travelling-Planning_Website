@@ -1,0 +1,36 @@
+
+  <div class="bg-secondary text-white border-right" id="sidebar-wrapper"  [ngClass]="status ? 'hide' : 'showMenu'">
+    <!-- <div class="sidebar-heading">Therichpost </div> -->
+    <div class="list-group list-group-flush">
+      <a href="#" class="list-group-item list-group-item-action bg-secondary text-white">
+        <img class="icon-img" src="assets/Images/Home-Icon.png">
+        <span>Home</span>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action bg-secondary text-white">
+        <img class="icon-img" src="assets/Images/Planning-Icon.png">
+        <span>Trip Planning</span>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action bg-secondary text-white">
+        <img class="icon-img" src="assets/Images/Upload-Icon.png">
+        <span>Upload Image</span>
+      </a>
+      <a href="#" class="list-group-item list-group-item-action bg-secondary text-white">
+        <img class="icon-img" src="assets/Images/User_Management-Icon.png">
+        <span>User Management</span>
+      </a>
+    </div>
+    <div class="dropdown pb-4" id="profile-icon">
+      <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+          <img src="https://github.com/mdo.png" alt="hugenerd" width="30" height="30" class="rounded-circle">
+          <span class="d-inline-block d-sm-inline mx-3" id="profile_username">Ng Jin Cheng</span>
+      </a>
+      <ul class="dropdown-menu dropdown-menu-dark text-small shadow text-center" aria-labelledby="dropdownUser1">
+          <li><a class="dropdown-item" href="#">Profile</a></li>
+          <li>
+              <hr class="dropdown-divider">
+          </li>
+          <li><a class="dropdown-item" href="#">Sign out</a></li>
+      </ul>
+  </div>
+  </div>
+  <!-- /#sidebar-wrapper -->
