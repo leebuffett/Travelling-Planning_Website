@@ -3,7 +3,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { UserManagementComponent } from './User-Management.component';
+import { UserManagementComponent } from './User-List.component';
 
 describe('UserManagementComponent', () => {
   let component: UserManagementComponent;
