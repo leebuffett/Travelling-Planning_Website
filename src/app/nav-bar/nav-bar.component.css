@@ -11,6 +11,10 @@ body {
   -o-transition: margin .25s ease-out;
   transition: margin .25s ease-out;
 }
+
+.sidebar-background{
+  background-color: #a5a5a5;
+}
 /*
 #profile_username, #dropdownUser1{
   color:black;
@@ -52,7 +56,7 @@ body {
     min-width: 0;
     width: 100%;
   }
-  .showMenu
+  .show
   {
     margin-left: 0!important;
   }
@@ -62,7 +66,7 @@ body {
   }
 }
 @media (max-width: 767px) {
-  .showMenu
+  .show
   {
     margin-left: -15rem!important;
   }

@@ -1,0 +1,72 @@
+#Title{
+  color: #f65100;
+  font-size: 150%;
+  margin-top: 2%;
+}
+
+#SubTitle{
+  color:black;
+  margin-top: 3%;
+  font-weight: bold;
+}
+
+#userManagementContent{
+  height: 100%;
+  border-top-style: solid;
+  border-top-color: black;
+  border-top-width:1px;
+  background-color: white;
+}
+
+#divBtnAdd{
+  text-align:end;
+  padding-right: 3%;
+  margin-top: 2%;
+}
+
+.btn-add{
+  background-color: #ffa114;
+}
+
+#content{
+  padding: 0 3%;
+  margin-top: 2%;
+}
+
+#tableHead{
+  color:white;
+}
+#usersTable{
+  *border-collapse: collapse; /* IE7 and lower */
+  border-spacing: 0;
+  text-align: center;
+}
+
+tr > td, tr> th{
+  border-right: 1px solid #eaeaea;
+}
+
+th:first-child {
+  border-radius: 10px 0 0 0;
+}
+th:last-child {
+  border-radius: 0 10px 0 0;
+}
+tr:last-child{
+  border-bottom: hidden;
+}
+tr:last-child > td:first-child{
+  border-radius: 0 0 0 10px;
+}
+
+tr:last-child > td:last-child{
+  border-radius: 0 0 10px 0;
+}
+
+tbody > tr:nth-child(2n+1){
+  background-color: white;
+}
+tbody > tr:nth-child(2n){
+  background-color: #f0f0f0;
+}
+
