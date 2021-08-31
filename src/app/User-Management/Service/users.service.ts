@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs/operators';
 import { IUsers } from '../IUsers';
 import { Observable } from 'rxjs';
+import { IRoles } from '../IRoles';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,23 @@ getAllUsers(): Observable<IUsers[]>{
           }
         }
         return users;
+      }
+    )
+  );
+}
+
+getAllRoles(): Observable<IRoles[]>{
+  return this.http.get('assets/data/roles.json').pipe(
+    map(
+      data=> {
+        const roles: Array<IRoles> = [];
+
+        for(const id in data){
+          if(data.hasOwnProperty(id)){
+            roles.push(data[id]);
+          }
+        }
+        return roles;
       }
     )
   );

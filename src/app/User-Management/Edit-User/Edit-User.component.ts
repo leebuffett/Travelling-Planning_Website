@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { IRoles } from '../IRoles';
+import { UsersService } from '../Service/users.service';
 
 @Component({
   selector: 'app-Edit-User',
@@ -10,13 +12,19 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class EditUserComponent implements OnInit {
   public userId: number;
   registrationForm: FormGroup;
-  constructor(private route:ActivatedRoute, private router:Router) { }
+
+  public roles: Array<IRoles> = [];
+  public roleId:number;
+
+  constructor(private route:ActivatedRoute, private router:Router,private usersSevice: UsersService) { }
 
   ngOnInit() {
+    this.GetRoleList();
     this.registrationForm = new FormGroup({
       username: new FormControl(null, Validators.required),
       password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
       confirmPassword: new FormControl(null, Validators.required),
+      role: new FormControl('',Validators.required)
     },this.passwordMatchingValidator);
 
     if(!this.route.snapshot.url.toString().match("Add-User")){
@@ -41,10 +49,23 @@ export class EditUserComponent implements OnInit {
     return this.registrationForm.get('confirmPassword') as FormControl;
   }
 
+  get Role(){
+    return this.registrationForm.get('role') as FormControl;
+  }
   onBack(){
     this.router.navigate(['/']);
   }
   onSubmit(){
+  }
 
+  GetRoleList(){
+    this.usersSevice.getAllRoles().subscribe(
+      data=>{
+        this.roles=data;
+      },
+      error=>{
+        console.log(error);
+      }
+    );
   }
 }
