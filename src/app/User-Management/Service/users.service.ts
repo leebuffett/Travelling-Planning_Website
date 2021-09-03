@@ -4,6 +4,7 @@ import { map } from 'rxjs/operators';
 import { IUsers } from '../IUsers';
 import { Observable } from 'rxjs';
 import { IRoles } from '../IRoles';
+import { user } from 'src/app/model/user';
 
 @Injectable({
   providedIn: 'root'
@@ -44,5 +45,17 @@ getAllRoles(): Observable<IRoles[]>{
       }
     )
   );
+}
+
+addUsers(user: user){
+  let users = [];
+  if(localStorage.getItem('Users')){
+    users = JSON.parse(localStorage.getItem('Users'));
+    users = [user,...users];
+  }
+  else{
+    users=[user];
+  }
+  localStorage.setItem('Users',JSON.stringify(users));
 }
 }

@@ -10,6 +10,7 @@ import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { UserManagementComponent } from './User-Management/User-List/User-List.component';
 import { UsersService } from './User-Management/Service/users.service';
 import { EditUserComponent } from './User-Management/Edit-User/Edit-User.component';
+import { AlertifyService } from './services/alertify.service';
 
 const appRoutes: Routes=[
   {path:'', component: UserManagementComponent},
@@ -37,7 +38,8 @@ const appRoutes: Routes=[
     RouterModule.forRoot(appRoutes)
   ],
   providers: [
-    UsersService
+    UsersService,
+    AlertifyService
   ],
   bootstrap: [AppComponent]
 })

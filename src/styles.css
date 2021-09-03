@@ -1,37 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-html, body {
-  height:100%;
-  margin:0;
-}
+@import 'assets/form.css';
+@import '../node_modules/alertifyjs/build/css/alertify.min.css';
+@import '../node_modules/alertifyjs/build/css/themes/bootstrap.min.css';
 
-.content{
-  padding: 0 3%;
-  margin-top: 2%;
-}
-
-#Title{
-  color: #f65100;
-  font-size: 150%;
-  margin-top: 2%;
-}
-
-#SubTitle{
-  color:black;
-  margin-top: 3%;
-  font-weight: bold;
-}
-
-#userManagementContent{
-  height: 100%;
-  border-top-style: solid;
-  border-top-color: black;
-  border-top-width:1px;
-  background-color: white;
-}
-
-.ng-invalid.ng-touched{
-  border-color: red;
-}
-.error-block{
-  color: red;
-}
