@@ -50,7 +50,7 @@ getAllRoles(): Observable<IRoles[]>{
 getUser(id: number){
   return this.getAllUsers().pipe(
     map(user =>{
-      return user.find(u => u.Id == id);
+      return user.find(u => u.Id === id);
     })
   );
 }

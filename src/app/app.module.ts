@@ -18,11 +18,12 @@ import { AlertifyService } from './services/alertify.service';
 import { UserLoginComponent } from './User-Management/User-Login/User-Login.component';
 import { AuthService } from './User-Management/Service/auth.service';
 import { AddUserComponent } from './User-Management/Add-User/Add-User.component';
+import { EditUserResolverService } from './User-Management/Edit-User/Edit-User-Resolver.service';
 
 const appRoutes: Routes=[
   {path:'', component: UserLoginComponent},
   {path:'User-List', component: UserManagementComponent},
-  {path:'Edit-User/:id', component: EditUserComponent},
+  {path:'Edit-User/:id', component: EditUserComponent, resolve:{rs: EditUserResolverService}},
   {path:'Add-User', component: AddUserComponent},
   {path:'Trip-Planning', component: UserManagementComponent},
   {path:'Upload-Image', component: UserManagementComponent},
@@ -53,7 +54,8 @@ const appRoutes: Routes=[
   providers: [
     UsersService,
     AlertifyService,
-    AuthService
+    AuthService,
+    EditUserResolverService
   ],
   bootstrap: [AppComponent]
 })
