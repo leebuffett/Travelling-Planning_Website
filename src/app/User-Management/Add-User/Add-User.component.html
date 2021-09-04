@@ -1,7 +1,7 @@
 <div class="container-fluid content">
   <div id="Title">User Management</div>
 
-  <div id="SubTitle">Edit User</div>
+  <div id="SubTitle">Add User</div>
 </div>
 <div id="userManagementContent">
   <div class="content">
@@ -10,7 +10,8 @@
       <div class="col-6">
       <div class="form-group col-12">
         <label for="username" class="form-label">Username<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" disabled placeholder="{{property.Username}}">
+        <input type="text" class="form-control" formControlName="username">
+        <span class="error-block" *ngIf="!Username.valid && (Username.touched || userSubmitted)">Username is required.</span>
       </div>
       <br/>
       <div class="form-group col-12">

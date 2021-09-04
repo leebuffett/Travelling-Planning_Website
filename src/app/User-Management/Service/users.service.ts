@@ -47,6 +47,14 @@ getAllRoles(): Observable<IRoles[]>{
   );
 }
 
+getUser(id: number){
+  return this.getAllUsers().pipe(
+    map(user =>{
+      return user.find(u => u.Id == id);
+    })
+  );
+}
+
 addUsers(user: user){
   let users = [];
   if(localStorage.getItem('Users')){

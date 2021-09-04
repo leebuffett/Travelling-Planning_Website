@@ -2,18 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { user } from 'src/app/model/user';
-import { IUsers } from '../IUsers';
 import { IRoles } from '../IRoles';
 import { UsersService } from '../Service/users.service';
 import { AlertifyService } from 'src/app/services/alertify.service';
 
 @Component({
-  selector: 'app-Edit-User',
-  templateUrl: './Edit-User.component.html',
-  styleUrls: ['./Edit-User.component.css']
+  selector: 'app-Add-User',
+  templateUrl: './Add-User.component.html',
+  styleUrls: ['./Add-User.component.css']
 })
-export class EditUserComponent implements OnInit {
-  public userId: number;
+export class AddUserComponent implements OnInit {
+
   registrationForm: FormGroup;
 
   public roles: Array<IRoles> = [];
@@ -21,33 +20,26 @@ export class EditUserComponent implements OnInit {
   userSubmitted:boolean;
   user: user; //used when add new user.
 
-  property = {} as IUsers; // instantiate new interface class
-
   constructor(private route:ActivatedRoute,
      private router:Router,
      private usersSevice: UsersService,
      private fb:FormBuilder,
-     private alertify: AlertifyService)
-    { }
+     private alertify: AlertifyService) { }
 
   ngOnInit() {
-    this.userId = this.route.snapshot.params['id'];
-    this.usersSevice.getUser(this.userId).subscribe(
-      (data: IUsers) => {
-        this.property = data;
-      },error=>{
-        console.log(error);
-      },()=>{
-        this.registrationForm.removeControl('role');
-        this.registrationForm.addControl('role',new FormControl(this.property.RoleId, Validators.required));
-      }
-    )
     this.GetRoleList();
     this.createUserForm();
+    // this.registrationForm = new FormGroup({
+    //   username: new FormControl(null, Validators.required),
+    //   password: new FormControl(null, [Validators.required, Validators.minLength(6)]),
+    //   confirmPassword: new FormControl(null, Validators.required),
+    //   role: new FormControl('',Validators.required)
+    // },this.passwordMatchingValidator);
   }
 
   createUserForm(){
     this.registrationForm = this.fb.group({
+      username: [null, Validators.required],
       password:[null, [Validators.required, Validators.minLength(6)]],
       confirmPassword:[null, Validators.required],
       role:['',Validators.required]
@@ -60,10 +52,14 @@ export class EditUserComponent implements OnInit {
 
   userData(): user{ //After submit, saving the user data
     return this.user = {
-      username: this.property.Username,
+      username: this.Username.value,
       password: this.Password.value,
       role: this.Role.value
     }
+  }
+
+  get Username(){
+    return this.registrationForm.get('username') as FormControl;
   }
 
   get Password(){
@@ -82,7 +78,7 @@ export class EditUserComponent implements OnInit {
   }
   onSubmit(){
     this.userSubmitted = true;
-    console.log(this.registrationForm)
+
     if(this.registrationForm.valid){
       this.usersSevice.addUsers(this.userData());
       this.userSubmitted = false;
