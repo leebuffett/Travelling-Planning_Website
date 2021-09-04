@@ -12,4 +12,8 @@ export class AppComponent {
   clickEvent(){
     this.status = !this.status;
   }
+
+  loggedin(){
+    return localStorage.getItem('token');
+  }
 }

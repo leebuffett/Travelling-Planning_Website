@@ -3,7 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import {HttpClientModule} from '@angular/common/http'
 import { NgxPaginationModule } from 'ngx-pagination';
 import {Routes, RouterModule} from '@angular/router';
-import { ReactiveFormsModule } from '@angular/forms';
+import {FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 import { AppComponent } from './app.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
@@ -11,9 +13,11 @@ import { UserManagementComponent } from './User-Management/User-List/User-List.c
 import { UsersService } from './User-Management/Service/users.service';
 import { EditUserComponent } from './User-Management/Edit-User/Edit-User.component';
 import { AlertifyService } from './services/alertify.service';
+import { UserLoginComponent } from './User-Management/User-Login/User-Login.component';
+import { AuthService } from './User-Management/Service/auth.service';
 
 const appRoutes: Routes=[
-  {path:'', component: UserManagementComponent},
+  {path:'', component: UserLoginComponent},
   {path:'User-List', component: UserManagementComponent},
   {path:'Edit-User/:id', component: EditUserComponent},
   {path:'Add-User', component: EditUserComponent},
@@ -28,18 +32,23 @@ const appRoutes: Routes=[
     AppComponent,
       NavBarComponent,
       UserManagementComponent,
-      EditUserComponent
+      EditUserComponent,
+      UserLoginComponent
    ],
   imports: [
     BrowserModule,
     HttpClientModule,
+    FormsModule,
     ReactiveFormsModule,
     NgxPaginationModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     UsersService,
-    AlertifyService
+    AlertifyService,
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

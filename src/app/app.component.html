@@ -1,9 +1,9 @@
 <div class="d-flex" id="wrapper">
   <!-- Sidebar -->
-  <app-nav-bar [status]="status"></app-nav-bar>
+  <app-nav-bar *ngIf="loggedin()" [status]="status"></app-nav-bar>
     <!-- Page Content -->
     <div id="page-content-wrapper">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" *ngIf="loggedin()">
 
         <div class="container-fluid">
           <button class="navbar-toggler" style="display: inline-block;" (click)="clickEvent()"><span class="navbar-toggler-icon"></span></button>

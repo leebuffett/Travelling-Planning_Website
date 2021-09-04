@@ -78,7 +78,7 @@ export class EditUserComponent implements OnInit {
     return this.registrationForm.get('role') as FormControl;
   }
   onBack(){
-    this.router.navigate(['/']);
+    this.router.navigate(['/User-List']);
   }
   onSubmit(){
     this.userSubmitted = true;
