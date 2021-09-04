@@ -8,6 +8,10 @@ export class AlertifyService {
 
 constructor() { }
 
+alert(message: string){
+  alertify.alert(message);
+}
+
 success(message: string){
   alertify.success(message);
 }
