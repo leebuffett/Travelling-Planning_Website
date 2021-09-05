@@ -31,17 +31,22 @@ export class EditUserComponent implements OnInit {
     { }
 
   ngOnInit() {
-    this.userId = this.route.snapshot.params['id'];
-    this.usersSevice.getUser(this.userId).subscribe(
-      (data: IUsers) => {
-        this.property = data;
-      },error=>{
-        console.log(error);
-      },()=>{
-        this.registrationForm.removeControl('role');
-        this.registrationForm.addControl('role',new FormControl(this.property.RoleId, Validators.required));
+    this.userId = +this.route.snapshot.params['id']; // plus is int
+    this.route.data.subscribe(
+      (data: IUsers) =>{
+        this.property = data['userRS'];
       }
     )
+    // this.usersSevice.getUser(this.userId).subscribe(
+    //   (data: IUsers) => {
+    //     this.property = data;
+    //   },error=>{
+    //     console.log(error);
+    //   },()=>{
+    //     this.registrationForm.removeControl('role');
+    //     this.registrationForm.addControl('role',new FormControl(this.property.RoleId, Validators.required));
+    //   }
+    // )
     this.GetRoleList();
     this.createUserForm();
   }
@@ -50,7 +55,7 @@ export class EditUserComponent implements OnInit {
     this.registrationForm = this.fb.group({
       password:[null, [Validators.required, Validators.minLength(6)]],
       confirmPassword:[null, Validators.required],
-      role:['',Validators.required]
+      role:[this.property.RoleId,Validators.required]
     }, {validators: this.passwordMatchingValidator});
   }
 
@@ -62,7 +67,7 @@ export class EditUserComponent implements OnInit {
     return this.user = {
       username: this.property.Username,
       password: this.Password.value,
-      role: this.Role.value
+      role: this.property.RoleId===1? this.Role.value: this.property.RoleId
     }
   }
 
