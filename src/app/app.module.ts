@@ -7,6 +7,8 @@ import {FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { TabsModule } from 'ngx-bootstrap/tabs';
+
 
 
 import { AppComponent } from './app.component';
@@ -19,13 +21,23 @@ import { UserLoginComponent } from './User-Management/User-Login/User-Login.comp
 import { AuthService } from './User-Management/Service/auth.service';
 import { AddUserComponent } from './User-Management/Add-User/Add-User.component';
 import { EditUserResolverService } from './User-Management/Edit-User/Edit-User-Resolver.service';
+import { TripImagesComponent } from './Trip/Trip-Images/Trip-Images.component';
+import { TripListComponent } from './Trip/Trip-List/Trip-List.component';
+import { AddTripComponent } from './Trip/Add-Trip/Add-Trip.component';
+import { EditTripComponent } from './Trip/Edit-Trip/Edit-Trip.component';
+import { EditTripResolverService } from './Trip/Edit-Trip/Edit-Trip-Resolver.service';
+
 
 const appRoutes: Routes=[
   {path:'', component: UserLoginComponent},
   {path:'User-List', component: UserManagementComponent},
-  {path:'Edit-User/:id', component: EditUserComponent, resolve:{rs: EditUserResolverService}},
+  {path:'Trip-Images', component: TripImagesComponent},
+  {path:'User-List', component: UserManagementComponent},
+  {path:'Edit-User/:id', component: EditUserComponent, resolve:{userRS: EditUserResolverService}},
   {path:'Add-User', component: AddUserComponent},
-  {path:'Trip-Planning', component: UserManagementComponent},
+  {path:'Trip-Planning', component: TripListComponent},
+  {path:'Add-Trip', component: AddTripComponent},
+  {path:'Edit-Trip/:id', component: EditTripComponent, resolve:{tripRS: EditTripResolverService}},
   {path:'Upload-Image', component: UserManagementComponent},
   {path:'User-List', component: UserManagementComponent},
   {path:'**', component: UserManagementComponent}
@@ -38,7 +50,11 @@ const appRoutes: Routes=[
       UserManagementComponent,
       EditUserComponent,
       UserLoginComponent,
-      AddUserComponent
+      AddUserComponent,
+      TripImagesComponent,
+      TripListComponent,
+      AddTripComponent,
+      EditTripComponent
    ],
   imports: [
     BrowserModule,
@@ -49,7 +65,8 @@ const appRoutes: Routes=[
     RouterModule.forRoot(appRoutes),
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
-    BsDatepickerModule.forRoot()
+    BsDatepickerModule.forRoot(),
+    TabsModule.forRoot()
   ],
   providers: [
     UsersService,
