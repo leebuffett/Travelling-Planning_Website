@@ -1,0 +1,32 @@
+[
+  {
+    "Id":1,
+    "Username":"Ng Jin Cheng",
+    "RoleId": 3,
+    "Role": "Viewew"
+  },
+  {
+    "Id":2,
+    "Username":"Lee Zong Yuan",
+    "RoleId": 1,
+    "Role": "Admin"
+  },
+  {
+    "Id":3,
+    "Username":"Choo Zhang Heng",
+    "RoleId": 2,
+    "Role": "Member"
+  },
+  {
+    "Id":4,
+    "Username":"Loh Seng Onk",
+    "RoleId": 3,
+    "Role": "Viewew"
+  },
+  {
+    "Id":5,
+    "Username":"Jefferey",
+    "RoleId": 2,
+    "Role": "Member"
+  }
+]

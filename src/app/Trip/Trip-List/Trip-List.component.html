@@ -1,0 +1,46 @@
+<div class="container-fluid content">
+  <div id="Title">Trip Planning</div>
+
+  <div id="SubTitle">Trips</div>
+</div>
+<div id="userManagementContent">
+
+  <div id="divBtnAdd">
+    <button type="button" routerLink="/Add-Trip" class="btn text-light btn-add">+ Add Trip</button>
+  </div>
+  <div class="content table-responsive">
+    <table class="table table-hover" id="usersTable" *ngIf="trips">
+
+      <thead id="tableHead">
+        <tr style="background-color:#29c6ff;">
+          <th>No.</th>
+          <th>Trips</th>
+          <th>Budget</th>
+          <th>Description</th>
+          <th>Start Date</th>
+          <th>End Date</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor = "let t of trips | paginate:{itemsPerPage: 5, currentPage : p}; index as i">
+          <td *ngIf="p==1">{{(i+1)}}</td>
+          <td *ngIf="p>1">{{((p-1)*5)+(i+1)}}</td>
+          <td>{{t.TripTitle}}</td>
+          <td>RM {{t.Budget}}</td>
+          <td>{{t.Description}}</td>
+          <td>{{t.StartDate}}</td>
+          <td>{{t.EndDate}}</td>
+          <td [ngClass]="(t.StatusId===1)?'text-success':'text-danger'">{{t.Status}}</td>
+          <td style="display: flex; border-bottom: hidden;">
+            <div style="width: 33%;"><a routerLink="/Edit-Trip/{{t.TripId}}"  style="cursor: pointer;">View</a></div>
+            <div style="width: 33%;"><a routerLink="/Edit-Trip/{{t.TripId}}"  style="cursor: pointer;">Edit</a></div>
+            <div style="width: 33%;"><a routerLink="/Edit-Trip/{{t.TripId}}"  style="cursor: pointer;">Delete</a></div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange) = "p =$event"></pagination-controls>
+  </div>
+</div>

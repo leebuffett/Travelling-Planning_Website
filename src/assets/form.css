@@ -1,0 +1,36 @@
+html, body {
+  height:100%;
+  margin:0;
+}
+
+.content{
+  padding: 0 3%;
+  margin-top: 2%;
+}
+
+#Title{
+  color: #f65100;
+  font-size: 150%;
+  margin-top: 2%;
+}
+
+#SubTitle{
+  color:black;
+  margin-top: 3%;
+  font-weight: bold;
+}
+
+#userManagementContent{
+  height: 100%;
+  border-top-style: solid;
+  border-top-color: black;
+  border-top-width:1px;
+  background-color: white;
+}
+
+.ng-invalid.ng-touched{
+  border-color: red;
+}
+.error-block{
+  color: red;
+}

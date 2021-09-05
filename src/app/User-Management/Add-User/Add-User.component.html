@@ -1,0 +1,60 @@
+<div class="container-fluid content">
+  <div id="Title">User Management</div>
+
+  <div id="SubTitle">Add User</div>
+</div>
+<div id="userManagementContent">
+  <div class="content">
+
+    <form [formGroup] = "registrationForm" (ngSubmit)="onSubmit()" style="display: flex;">
+      <div class="col-6">
+      <div class="form-group col-12">
+        <label for="username" class="form-label">Username<span class="text-danger">*</span></label>
+        <input type="text" class="form-control" formControlName="username">
+        <span class="error-block" *ngIf="!Username.valid && (Username.touched || userSubmitted)">Username is required.</span>
+      </div>
+      <br/>
+      <div class="form-group col-12">
+        <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+        <input type="password" class="form-control" formControlName="password">
+        <span class="error-block" *ngIf="!Password.valid && (Password.touched|| userSubmitted)">
+          <span *ngIf="Password.errors.required">Password is required.</span>
+          <span *ngIf="Password.errors.minlength">Password should more than 6 characters.</span>
+        </span>
+      </div>
+      <br/>
+      <div class="form-group col-12">
+        <label for="confirmPassword" class="form-label">Confirm Password <span class="text-danger">*</span></label>
+        <input type="password" class="form-control" formControlName="confirmPassword">
+        <span class="error-block" *ngIf="!ConfirmPassword.valid && (ConfirmPassword.touched|| userSubmitted)">
+          <span *ngIf="ConfirmPassword.errors.required">Confirm Password is required.</span>
+        </span>
+        <span class="error-block" *ngIf="registrationForm.hasError('notmatched') && ConfirmPassword.valid">
+          Password not matched.
+        </span>
+      </div>
+      <br/>
+      <div class="form-group col-12">
+        <label for="Role" class="form-label">Role <span class="text-danger">*</span></label>
+        <select class="form-select" id="inputGroupSelect02" formControlName="role">
+          <option selected value="">Select A Role</option>
+          <option *ngFor="let r of roles" value="{{r.Id}}">{{r.Role}}</option>
+        </select>
+        <span class="error-block" *ngIf="!Role.valid && (Role.touched|| userSubmitted)">Role is required.</span>
+      </div>
+      <div class="form-group" style="margin-top: 3%;">
+        <button (click)="onBack()" class="btn btn-outline-secondary me-3">Cancel</button>
+        <button type="submit" class="btn btn-success">Submit</button>
+      </div>
+    </div>
+    <div class="form-group col-6 text-center">
+      <img src="assets/Images/DefaultUserIcon.png" class="User-Image" height="200" width="200" alt="img">
+      <div class="mt-4">
+        <button type="button" class="btn btn-secondary" style="width: 70%; border-radius: 20px;">Upload Profile Image</button>
+      </div>
+    </div>
+
+    </form>
+
+  </div>
+</div>

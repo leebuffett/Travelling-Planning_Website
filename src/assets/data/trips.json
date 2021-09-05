@@ -1,0 +1,62 @@
+[
+  {
+    "TripId":1,
+    "TripTitle":"Melaka",
+    "Budget": 3,
+    "Description": "blablablablablabla",
+    "StartDate": "09/01/2021",
+    "EndDate": "09/01/2021",
+    "StatusId": 1,
+    "Status": "Completed"
+  },
+  {
+    "TripId":2,
+    "TripTitle":"Penang",
+    "Budget": 3,
+    "Description": "blablablablablabla",
+    "StartDate": "09/01/2021",
+    "EndDate": "09/01/2021",
+    "StatusId": 2,
+    "Status": "Pending"
+  },
+  {
+    "TripId":3,
+    "TripTitle":"Redang",
+    "Budget": 3,
+    "Description": "blablablablablabla",
+    "StartDate": "09/01/2021",
+    "EndDate": "09/01/2021",
+    "StatusId": 2,
+    "Status": "Pending"
+  },
+  {
+    "TripId":4,
+    "TripTitle":"Langkawi",
+    "Budget": 3,
+    "Description": "blablablablablabla",
+    "StartDate": "09/01/2021",
+    "EndDate": "09/01/2021",
+    "StatusId": 2,
+    "Status": "Pending"
+  },
+  {
+    "TripId":5,
+    "TripTitle":"Genting",
+    "Budget": 3,
+    "Description": "blablablablablabla",
+    "StartDate": "09/01/2021",
+    "EndDate": "09/01/2021",
+    "StatusId": 1,
+    "Status": "Completed"
+  },
+  {
+    "TripId":6,
+    "TripTitle":"Setapak",
+    "Budget": 3,
+    "Description": "blablablablablabla",
+    "StartDate": "09/01/2021",
+    "EndDate": "09/01/2021",
+    "StatusId": 2,
+    "Status": "Pending"
+  }
+]
