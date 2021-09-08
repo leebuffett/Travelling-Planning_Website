@@ -17,14 +17,14 @@
           <th>Trips</th>
           <th>Budget</th>
           <th>Description</th>
-          <th>Start Date</th>
+          <th><a style="cursor: pointer;" (click) ="onSortDirection()">Start Date</a></th>
           <th>End Date</th>
           <th>Status</th>
           <th>Actions</th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor = "let t of trips | paginate:{itemsPerPage: 5, currentPage : p}; index as i">
+        <tr *ngFor = "let t of trips | sorting:[SortByParams, SortDirection] | paginate:{itemsPerPage: 5, currentPage : p}; index as i">
           <td *ngIf="p==1">{{(i+1)}}</td>
           <td *ngIf="p>1">{{((p-1)*5)+(i+1)}}</td>
           <td>{{t.TripTitle}}</td>

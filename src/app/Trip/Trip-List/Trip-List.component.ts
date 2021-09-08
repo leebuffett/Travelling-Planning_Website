@@ -11,6 +11,10 @@ export class TripListComponent implements OnInit {
 
   trips:Array<ITrips>;
   p:number = 1;
+
+  SortByParams='StartDate';
+  SortDirection='asc';
+
   constructor(private tripService: TripsService) {
     this.trips=[];
    }
@@ -24,6 +28,15 @@ export class TripListComponent implements OnInit {
         console.log(error);
       }
     );
+  }
+
+  onSortDirection(){
+    if(this.SortDirection === 'desc'){
+      this.SortDirection = 'asc';
+    }
+    else{
+      this.SortDirection = 'desc';
+    }
   }
 
 }

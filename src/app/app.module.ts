@@ -26,6 +26,7 @@ import { TripListComponent } from './Trip/Trip-List/Trip-List.component';
 import { AddTripComponent } from './Trip/Add-Trip/Add-Trip.component';
 import { EditTripComponent } from './Trip/Edit-Trip/Edit-Trip.component';
 import { EditTripResolverService } from './Trip/Edit-Trip/Edit-Trip-Resolver.service';
+import { SortingPipe } from './Pipes/sorting.pipe';
 
 
 const appRoutes: Routes=[
@@ -54,7 +55,8 @@ const appRoutes: Routes=[
       TripImagesComponent,
       TripListComponent,
       AddTripComponent,
-      EditTripComponent
+      EditTripComponent,
+      SortingPipe
    ],
   imports: [
     BrowserModule,
