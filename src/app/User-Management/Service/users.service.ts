@@ -14,7 +14,7 @@ export class UsersService {
 constructor(private http:HttpClient) { }
 
 getAllUsers(): Observable<IUsers[]>{
-  return this.http.get('assets/data/users.json').pipe(
+  return this.http.get('http://localhost:52872/api/User').pipe(
     map(
       data=> {
         const users: Array<IUsers> = [];
@@ -50,7 +50,7 @@ getAllRoles(): Observable<IRoles[]>{
 getUser(id: number){
   return this.getAllUsers().pipe(
     map(user =>{
-      return user.find(u => u.Id === id);
+      return user.find(u => u.id === id);
     })
   );
 }

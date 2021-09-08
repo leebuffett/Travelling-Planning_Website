@@ -10,7 +10,7 @@
       <div class="col-6">
       <div class="form-group col-12">
         <label for="username" class="form-label">Username<span class="text-danger">*</span></label>
-        <input type="text" class="form-control" disabled placeholder="{{property.Username}}">
+        <input type="text" class="form-control" disabled placeholder="{{property.username}}">
       </div>
       <br/>
       <div class="form-group col-12">
@@ -35,8 +35,8 @@
       <br/>
       <div class="form-group col-12">
         <label for="Role" class="form-label">Role <span class="text-danger">*</span></label>
-        <input *ngIf="property.RoleId!==1" type="text" class="form-control" disabled placeholder="{{property.Role}}">
-        <select *ngIf="property.RoleId===1" class="form-select" id="inputGroupSelect02" formControlName="role">
+        <input *ngIf="property.roleId!==1" type="text" class="form-control" disabled placeholder="{{property.role}}">
+        <select *ngIf="property.roleId===1" class="form-select" id="inputGroupSelect02" formControlName="role">
           <option selected value="">Select A Role</option>
           <option *ngFor="let r of roles" value="{{r.Id}}">{{r.Role}}</option>
         </select>

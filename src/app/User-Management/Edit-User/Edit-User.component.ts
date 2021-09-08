@@ -55,7 +55,7 @@ export class EditUserComponent implements OnInit {
     this.registrationForm = this.fb.group({
       password:[null, [Validators.required, Validators.minLength(6)]],
       confirmPassword:[null, Validators.required],
-      role:[this.property.RoleId,Validators.required]
+      role:[this.property.roleId,Validators.required]
     }, {validators: this.passwordMatchingValidator});
   }
 
@@ -65,9 +65,9 @@ export class EditUserComponent implements OnInit {
 
   userData(): user{ //After submit, saving the user data
     return this.user = {
-      username: this.property.Username,
+      username: this.property.username,
       password: this.Password.value,
-      role: this.property.RoleId===1? this.Role.value: this.property.RoleId
+      role: this.property.roleId===1? this.Role.value: this.property.roleId
     }
   }
 
